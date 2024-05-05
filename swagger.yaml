@@ -4,7 +4,7 @@ info:
   description: API para calcular o CREDIT_SCORE de um cliente de seguro de veículos
   version: 1.0.0
 servers:
-  - url: 'http://localhost:3000/api'
+  - url: 'http://seguro-veiculos-api.azurewebsites.net/:3000/api'
 paths:
   /credit-score:
     get:
@@ -59,7 +59,7 @@ paths:
           required: true
           schema:
             type: string
-            enum: ['sports car', 'sedan']
+            enum: ['sedan','sports car']
         - name: ANNUAL_MILEAGE
           in: query
           description: Quilometragem anual do veículo do cliente
