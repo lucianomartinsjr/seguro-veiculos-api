@@ -21,7 +21,7 @@ const getCreditScore = (req, res) => {
       const csvIncome = data.INCOME.toLowerCase();
       const csvVehicleYear = data.VEHICLE_YEAR.toLowerCase();
       const csvVehicleType = data.VEHICLE_TYPE.toLowerCase();
-      const csvAnnualMileage = parseInt(data.ANNUAL_MILEAGE.replace(/\D/g, ''), 10) || 0;
+      const csvAnnualMileage = parseInt(data.ANNUAL_MILEAGE) || 0;
 
       // Comparar os dados do CSV com os parâmetros fornecidos
       console.log('CSV:', csvAge, csvGender, csvDrivingExperience, csvEducation, csvIncome, csvVehicleYear, csvVehicleType, csvAnnualMileage);
@@ -35,7 +35,7 @@ const getCreditScore = (req, res) => {
         csvIncome === INCOME.toLowerCase() &&
         csvVehicleYear === VEHICLE_YEAR.toLowerCase() &&
         csvVehicleType === VEHICLE_TYPE.toLowerCase() &&
-        csvAnnualMileage === (parseInt(ANNUAL_MILEAGE, 10) || 0)
+        Math.round(csvAnnualMileage) === Math.round(parseInt(ANNUAL_MILEAGE) || 0)
       ) {
         // Se houver correspondência, adicionar o ID e o CREDIT_SCORE à lista de resultados
         results.push({ ID: data.ID, CREDIT_SCORE: data.CREDIT_SCORE });
