@@ -5,7 +5,6 @@ const yamljs = require('yamljs');
 const insuranceRoutes = require('./api/routes/insuranceRoutes');
 
 const app = express();
-app.use(cors());
 const swaggerDocument = yamljs.load('./swagger.yaml');
 
 app.use(bodyParser.json());
