@@ -4,7 +4,7 @@ info:
   description: API para calcular o CREDIT_SCORE de um cliente de seguro de veículos
   version: 1.0.0
 servers:
-  - url: 'http://seguro-veiculos-api.azurewebsites.net/'
+  - url: 'http://seguro-veiculos-api.azurewebsites.net/api'
 paths:
   /credit-score:
     get:
