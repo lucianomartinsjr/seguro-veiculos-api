@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: Seguro de Veículos API
+  description: API para calcular o CREDIT_SCORE de um cliente de seguro de veículos
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:3000/api'
+paths:
+  /credit-score:
+    get:
+      summary: Obter CREDIT_SCORE
+      description: Obtém o CREDIT_SCORE com base nos dados fornecidos
+      parameters:
+        - name: AGE
+          in: query
+          description: Idade do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['16-25', '26-39', '40-64','65+']
+        - name: GENDER
+          in: query
+          description: Gênero do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['female', 'male']
+        - name: DRIVING_EXPERIENCE
+          in: query
+          description: Anos de experiência de direção do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['0-9y', '10-19y', '20-29y','30y+']
+        - name: EDUCATION
+          in: query
+          description: Nível de escolaridade do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['none', 'high school', 'university']
+        - name: INCOME
+          in: query
+          description: Renda do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['upper class', 'poverty','middle class', 'working class']
+        - name: VEHICLE_YEAR
+          in: query
+          description: Ano do veículo do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['after 2015', 'before 2015']
+        - name: VEHICLE_TYPE
+          in: query
+          description: Tipo do veículo do cliente
+          required: true
+          schema:
+            type: string
+            enum: ['sports car', 'sedan']
+        - name: ANNUAL_MILEAGE
+          in: query
+          description: Quilometragem anual do veículo do cliente
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: CREDIT_SCORE retornado com sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  creditScore:
+                    type: integer
