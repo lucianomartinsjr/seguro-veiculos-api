@@ -21,11 +21,7 @@ const getCreditScore = (req, res) => {
       const csvIncome = data.INCOME.toLowerCase();
       const csvVehicleYear = data.VEHICLE_YEAR.toLowerCase();
       const csvVehicleType = data.VEHICLE_TYPE.toLowerCase();
-      const csvAnnualMileage = parseInt(data.ANNUAL_MILEAGE) || 0;
-
-      // Comparar os dados do CSV com os parâmetros fornecidos
-      console.log('CSV:', csvAge, csvGender, csvDrivingExperience, csvEducation, csvIncome, csvVehicleYear, csvVehicleType, csvAnnualMileage);
-      console.log('Params:', AGE.toLowerCase(), GENDER.toLowerCase(), DRIVING_EXPERIENCE.toLowerCase(), EDUCATION.toLowerCase(), INCOME.toLowerCase(), VEHICLE_YEAR.toLowerCase(), VEHICLE_TYPE.toLowerCase(), parseInt(ANNUAL_MILEAGE, 10) || 0);
+      const csvAnnualMileage = parseInt(data.ANNUAL_MILEAGE, 10) || 0;
 
       if (
         csvAge === AGE.toLowerCase() &&
